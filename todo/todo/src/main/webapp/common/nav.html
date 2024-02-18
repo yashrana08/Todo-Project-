@@ -1,0 +1,102 @@
+<style>
+  nav {
+    text-align: center;
+  }
+
+  .section-content {
+    margin: 0 auto; /* Center the section content */
+    text-align: left; /* Align the text inside section content to left */
+    width: 50%; /* Adjust the width as needed */
+  }
+</style>
+
+<nav>
+  <a href="#" class="nav-link" data-section="home">Home</a>
+  <a href="#" class="nav-link" data-section="about">About</a>
+  <a href="#" class="nav-link" data-section="contact">Contact</a>
+</nav>
+
+<div id="homeContent" class="section-content" style="display: none;">
+  <p>Home content goes here</p>
+  <p class="go-back" style="display: none;">Go Back</p>
+</div>
+
+<div id="aboutContent" class="section-content" style="display: none;">
+  <p>About content goes here</p>
+  <p class="go-back" style="display: none;">Go Back</p>
+</div>
+
+<div id="contactContent" class="section-content" style="display: none;">
+  <p>Contact content goes here</p>
+  <p class="go-back" style="display: none;">Go Back</p>
+</div>
+
+<script>
+  // Get all navigation links and section contents
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sectionContents = document.querySelectorAll('.section-content');
+
+  // Add click event listener to each navigation link
+  navLinks.forEach(function(navLink) {
+    navLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+
+      const section = this.getAttribute('data-section');
+      const content = document.getElementById(`${section}Content`);
+
+      // Hide all section contents and go-back texts
+      sectionContents.forEach(function(sectionContent) {
+        sectionContent.style.display = 'none';
+        sectionContent.querySelector('.go-back').style.display = 'none';
+      });
+
+      // Toggle visibility of selected section content and go-back text
+      content.style.display = 'block';
+      content.querySelector('.go-back').style.display = 'block';
+    });
+  });
+
+  // Add click event listener to each go-back text
+  const goBackTexts = document.querySelectorAll('.go-back');
+  goBackTexts.forEach(function(goBackText) {
+    goBackText.addEventListener('click', function() {
+      // Hide the go-back text and its associated section content
+      this.style.display = 'none';
+      this.parentNode.style.display = 'none';
+    });
+  });
+</script>
+<style>
+  nav {
+    text-align: center;
+  }
+
+  .nav-link {
+    margin: 0 20px; /* Add more margin between navigation links */
+  }
+
+  .section-content {
+    margin: 0 auto; /* Center the section content */
+    text-align: left; /* Align the text inside section content to left */
+    width: 50%; /* Adjust the width as needed */
+  }
+</style>
+<style>
+  nav {
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 40px; /* Increase the font size of navigation links */
+    margin: 0 20px; /* Add margin between navigation links */
+  }
+
+  .section-content {
+    margin: 0 auto; /* Center the section content */
+    text-align: left; /* Align the text inside section content to left */
+    width: 50%; /* Adjust the width as needed */
+  }
+</style>
+
+
+
